@@ -1,1 +1,1 @@
-# Vol_GP
+# Implied Volatility Estimation using Gaussian Process 
