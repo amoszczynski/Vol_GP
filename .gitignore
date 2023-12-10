@@ -1,0 +1,4 @@
+daily_GP/models/*.pt
+option_data/spy_data/*.csv
+option_data/spy_data/*.zip
+.DS_Store
