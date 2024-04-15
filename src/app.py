@@ -27,10 +27,10 @@ class ExactGPModel(gpytorch.models.ExactGP):
 
 # IMPORTING DATA
 try:
-    with open("pickles/model_info.pickle", "rb") as handle:
+    with open("daily_GP/pickles/model_info.pickle", "rb") as handle:
         gp_models = pickle.load(handle)
 
-    with open("pickles/chain_info.pickle", "rb") as handle:
+    with open("daily_GP/pickles/chain_info.pickle", "rb") as handle:
         daily_chains = pickle.load(handle)
 except:
     pass
@@ -118,7 +118,8 @@ for day_str in days:
 
 
 # Initialize Dash app
-app = dash.Dash()
+app = dash.Dash(__name__)
+server = app.server
 
 # App layout
 app.layout = html.Div(
