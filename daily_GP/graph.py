@@ -63,9 +63,9 @@ for day_str in days:
         p_tst = p_tst.loc[p_tst["T"] == t_to_exp]
 
         # getting model/likelihood
-        c_plt_model = torch.load("models/call_GP_" + day_str + ".pt")
+        c_plt_model = torch.load("e_models/call_GP_" + day_str + ".pt")
         c_plt_model.eval()
-        p_plt_model = torch.load("models/put_GP_" + day_str + ".pt")
+        p_plt_model = torch.load("e_models/put_GP_" + day_str + ".pt")
         p_plt_model.eval()
         c_ll = gp_models[day_str]["call_likelihood"]
         c_ll.eval()
@@ -78,7 +78,7 @@ for day_str in days:
         t_arr = np.array([t_to_exp] * 100).astype(np.float32)
         samp_t = (t_arr - 20) / (365 - 20)
 
-        sample = torch.tensor([samp_t, samp_mny]).T  # .reshape((1000, 2))
+        sample = torch.tensor(np.array([samp_t, samp_mny])).T  # .reshape((1000, 2))
 
         # Make predictions by feeding model through likelihood
         with torch.no_grad(), gpytorch.settings.fast_pred_var():
