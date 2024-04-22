@@ -27,10 +27,10 @@ class ExactGPModel(gpytorch.models.ExactGP):
 
 # IMPORTING DATA
 try:
-    with open("daily_GP/pickles/model_info.pickle", "rb") as handle:
+    with open("src/pickles/model_info.pickle", "rb") as handle:
         gp_models = pickle.load(handle)
 
-    with open("daily_GP/pickles/chain_info.pickle", "rb") as handle:
+    with open("src/pickles/chain_info.pickle", "rb") as handle:
         daily_chains = pickle.load(handle)
 except:
     pass
